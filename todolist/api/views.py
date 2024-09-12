@@ -6,4 +6,4 @@ from rest_framework import viewsets
 
 class TodoViewset(viewsets.ModelViewSet):
     queryset=TodoList.objects.all()
-    serializer_clas=TodoSerializers
+    serializer_class=TodoSerializers
