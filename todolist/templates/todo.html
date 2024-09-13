@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To Do List</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link
     href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
@@ -13,18 +16,20 @@
 </head>
 <body>
     <div class="container">
+        <h1>TO-DO App</h1>
         <div class="section1">
         <form method="POST">
             {% csrf_token %}
             {{form}}
-            <button type="Submit" class="submit-btn">SEND</button>
+            <button type="Submit" class="submit-btn"><i class="ri-send-plane-fill"></i></button>
             </form>
         </div>
         <div class="section2">
-            <h3>TODO LIST </h3>
+            <h3>TO-DO LIST </h3>
     <table>
         <thead>
             <tr>
+                <th></th>
                 <th>Task Title</th>
                 <th>Description</th>
             </tr>
@@ -32,6 +37,7 @@
         <tbody>
             {% for item in data %}
             <tr>
+                <td style="font-size:10px"><i class="ri-circle-fill"></i></td>
                 <td>{{ item.task_name }}</td>
                 <td>{{ item.task_decription }}</td>
                 <td>
