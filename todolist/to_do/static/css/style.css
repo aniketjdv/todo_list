@@ -87,3 +87,44 @@ body{
 .delete-btn:hover{
     color: red;
 }
+
+
+/* for mobile devices */
+
+@media screen and (max-width:480px) {
+    .form-control{
+        width: 60vw;
+        font-size: 15px;
+    }
+
+    .container{
+        width: 90vw;
+    }
+    .section1{
+        width: 80vw;
+    }
+    .section2{
+        width: 80vw;
+    }
+}
+
+
+
+/* for tablets */
+@media screen and (max-width:768px) and (min-width:480px){
+    .form-control{
+        width: 60vw;
+        font-size: 15px;
+    }
+
+    .container{
+        width: 90vw;
+    }
+    .section1{
+        width: 80vw;
+    }
+    .section2{
+        width: 80vw;
+    }
+}
+
