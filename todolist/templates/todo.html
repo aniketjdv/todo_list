@@ -5,13 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To Do List</title>
-    <script>
-    function confirmDelete(form) {
-        if (confirm('Are you sure you want to delete this item?')) {
-            form.submit();
-        }
-    }
-</script>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
+    rel="stylesheet"/>
+    
 </head>
 <body>
     <div class="container">
@@ -23,6 +21,7 @@
             </form>
         </div>
         <div class="section2">
+            <h3>TODO LIST </h3>
     <table>
         <thead>
             <tr>
@@ -35,11 +34,18 @@
             <tr>
                 <td>{{ item.task_name }}</td>
                 <td>{{ item.task_decription }}</td>
-                <td>tick</td>
                 <td>
-                    <form action="{% url 'delete_item' item.td_id %}" method="post" style="display:inline;" onsubmit="return confirmDelete(this);">
+                    <form action="POST" name="checkbox1">
+                        {% comment %} <input type="checkbox" id="cb1{{item.cb_id}}"> {% endcomment %}
+                        <input type="checkbox" id="cb{{ item.td_id }}" data-task-id="{{ item.td_id }}" class="checkbox">
+                    </form>
+
+
+                </td>
+                <td>
+                    <form action="{% url 'delete_item' item.td_id %}" method="post" style="display:inline;">
                             {% csrf_token %}
-                            <button type="submit" class="delete-btn"></button>
+                            <button type="submit" class="delete-btn"><i class="ri-delete-bin-line"></i></button>
                     </form>
                 </td>
             </tr>
@@ -49,5 +55,7 @@
 
         </div>
     </div>
+
+    <script src="{% static 'js/script.js' %}"></script>
 </body>
 </html>
